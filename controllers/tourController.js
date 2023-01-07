@@ -50,6 +50,7 @@ exports.createTour = (req, res) => {
   //   body received because of middleware
 
   const newId = tours[tours.length - 1].id + 1;
+  // eslint-disable-next-line prefer-object-spread
   const newTour = Object.assign({ id: newId }, req.body);
 
   tours.push(newTour);
