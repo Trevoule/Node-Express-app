@@ -6,6 +6,7 @@ const {
   getTour,
   deleteTour,
   checkID,
+  checkBody,
 } = require('../controllers/tourController');
 
 // app.get('/api/v1/tours', getAllTours);
@@ -28,7 +29,7 @@ const router = express.Router();
 
 router.param('id', checkID);
 
-router.route('/').get(getAllTours).post(createTour);
+router.route('/').get(getAllTours).post(checkBody, createTour);
 router.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
 
 module.exports = router;
